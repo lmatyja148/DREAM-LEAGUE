@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+           <script
+           src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <title>The Dream League</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,700,800" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">DL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="about.html" class="nav-link">X-RATING</a></li>
+            <li class="nav-item"><a href="solutions.html" class="nav-link">Stats</a></li>
+            <li class="nav-item"><a href="solutions.html" class="nav-link">MyTeam</a></li>
+            <li class="nav-item  active dropdown">
+              <a class="nav-link dropdown-toggle" href="room.html" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Roster</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                  <a class="dropdown-item" href="portfolio.html">Roster</a>
+                  <a class="dropdown-item" href="portfolio-single.html">Matchup </a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="blog.html" class="nav-link">Threads</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link">++</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- END nav -->
+    
+    <section class="home-slider ftco-degree-bg">
+      <div class="slider-item bread-wrap" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center">
+            <div class="col-md-10 col-sm-12 ftco-animate mb-4 text-center">
+              <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>MY TEAM</span></p>
+              <h1 class="mb-3 bread">Roster</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section ftco-degree-bg">
+   <body ng-app="myplayers">
+    <div ng-controller="allflexcontroller">
+       
+<form>
+
+<p>TEAM GENERATOR</p>
+        <input type="button" value="Generate" ng-click="getdata({{selecteditem.player}},{{selectedrb.player}},{{selectedrbT.player}},{{selectedwr.player}},{{selectedwrr.player}},{{selectedTE.player}},{{selectedflx.player}},{{selectedd.team}},{{selecteditemk.player}})" />
+
+
+<table border="8" width="800" cellpadding="40">
+<tbody>
+<tr>
+<th> QB <select ng-model="selecteditem" ng-options="nut as nut.player for nut in nuts" ng-change=update()></select></th>
+<td>Bye week</td>
+<td>Fantasy Points</td>
+<td>Patt</td>
+<td>Pcmp</td>
+<td>Pyds</td>   
+<td>Ptd</td>
+<td>Interceptions</td>
+<td>P2pt</td>
+<td>Ryds</td>
+<td>Rtd</td>
+<td>R2pt</td>
+<td>Rec</td>
+<td>Recyds</td>
+<td>Retd</td>
+<td>Re2pt</td>
+<td>Reyds</td>
+<td>TD</td>
+<td>Year</td>
+<td>POS</td>
+
+</tr>
+<tr>
+<td>{{selecteditem.player}}</td>
+<td>{{selecteditem.bye}}</td>
+<td>{{selecteditem.pts}}</td>
+<td>{{selecteditem.patt}}</td>
+<td>{{selecteditem.pcmp}}</td>
+<td>{{selecteditem.pyds}}</td>
+<td>{{selecteditem.ptd}}</td>
+<td>{{selecteditem.interception}}</td>
+<td>{{selecteditem.p2pt}}</td>
+<td>{{selecteditem.ryds}}</td>
+<td>{{selecteditem.rtd}}</td>
+<td>{{selecteditem.r2pt}}</td>
+<td>{{selecteditem.rec}}</td>
+<td>{{selecteditem.recyds}}</td>
+<td>{{selecteditem.retd}}</td>
+<td>{{selecteditem.re2pt}}</td>
+<td>{{selecteditem.reyds}}</td>
+<td>{{selecteditem.td}}</td>
+<td>{{selecteditem.yr}}</td>
+<td>{{selecteditem.pos}}</td>
+
+
+</tr>
+   <tr>
+<th>RB<select ng-model="selectedrb" ng-options="nut as nut.player for nut in rb" ng-change=update()></select></th>
+
+    </tr>
+    <tr>
+<td>{{selectedrb.player}}</td>
+<td>{{selectedrb.bye}}</td>
+<td>{{selectedrb.pts}}</td>
+<td>{{selectedrb.patt}}</td>
+<td>{{selectedrb.pcmp}}</td>
+<td>{{selectedrb.pyds}}</td>
+<td>{{selectedrb.ptd}}</td>
+<td>{{selectedrb.interception}}</td>
+<td>{{selectedrb.p2pt}}</td>
+<td>{{selectedrb.ryds}}</td>
+<td>{{selectedrb.rtd}}</td>
+<td>{{selectedrb.r2pt}}</td>
+<td>{{selectedrb.rec}}</td>
+<td>{{selectedrb.recyds}}</td>
+<td>{{selectedrb.retd}}</td>
+<td>{{selectedrb.re2pt}}</td>
+<td>{{selectedrb.reyds}}</td>
+<td>{{selectedrb.td}}</td>
+<td>{{selectedrb.yr}}</td>
+<td>{{selectedrb.pos}}</td>
+
+
+</tr>
+     <tr>
+<th>RB<select ng-model="selectedrbT" ng-options="nut as nut.player for nut in rb" ng-change=update()></select></th>
+
+    </tr>
+    <tr>
+<td>{{selectedrbT.player}}</td>
+<td>{{selectedrbT.bye}}</td>
+<td>{{selectedrbT.pts}}</td>
+<td>{{selectedrbT.patt}}</td>
+<td>{{selectedrbT.pcmp}}</td>
+<td>{{selectedrbT.pyds}}</td>
+<td>{{selectedrbT.ptd}}</td>
+<td>{{selectedrbT.interception}}</td>
+<td>{{selectedrbT.p2pt}}</td>
+<td>{{selectedrbT.ryds}}</td>
+<td>{{selectedrbT.rtd}}</td>
+<td>{{selectedrbT.r2pt}}</td>
+<td>{{selectedrbT.rec}}</td>
+<td>{{selectedrbT.recyds}}</td>
+<td>{{selectedrbT.retd}}</td>
+<td>{{selectedrbT.re2pt}}</td>
+<td>{{selectedrbT.reyds}}</td>
+<td>{{selectedrbT.td}}</td>
+<td>{{selectedrbT.yr}}</td>
+<td>{{selectedrbT.pos}}</td>
+
+
+</tr>
+     <tr>
+<th>WR <select ng-model="selectedwr" ng-options="nut as nut.player for nut in wr" ng-change=update()></select></th>
+
+    </tr>
+    <tr>
+<td>{{selectedwr.player}}</td>
+<td>{{selectedwr.bye}}</td>
+<td>{{selectedwr.pts}}</td>
+<td>{{selectedwr.patt}}</td>
+<td>{{selectedwr.pcmp}}</td>
+<td>{{selectedwr.pyds}}</td>
+<td>{{selectedwr.ptd}}</td>
+<td>{{selectedwr.interception}}</td>
+<td>{{selectedwr.p2pt}}</td>
+<td>{{selectedwr.ryds}}</td>
+<td>{{selectedwr.rtd}}</td>
+<td>{{selectedwr.r2pt}}</td>
+<td>{{selectedwr.rec}}</td>
+<td>{{selectedwr.recyds}}</td>
+<td>{{selectedwr.retd}}</td>
+<td>{{selectedwr.re2pt}}</td>
+<td>{{selectedwr.reyds}}</td>
+<td>{{selectedwr.td}}</td>
+<td>{{selectedwr.yr}}</td>
+<td>{{selectedwr.pos}}</td>
+
+
+</tr>
+     <tr>
+<th>WR <select ng-model="selectedwrr" ng-options="nut as nut.player for nut in wr" ng-change=update()></select></th>
+
+    </tr>
+    <tr>
+<td>{{selectedwrr.player}}</td>
+<td>{{selectedwrr.bye}}</td>
+<td>{{selectedwrr.pts}}</td>
+<td>{{selectedwrr.patt}}</td>
+<td>{{selectedwrr.pcmp}}</td>
+<td>{{selectedwrr.pyds}}</td>
+<td>{{selectedwrr.ptd}}</td>
+<td>{{selectedwrr.interception}}</td>
+<td>{{selectedwrr.p2pt}}</td>
+<td>{{selectedwrr.ryds}}</td>
+<td>{{selectedwrr.rtd}}</td>
+<td>{{selectedwrr.r2pt}}</td>
+<td>{{selectedwrr.rec}}</td>
+<td>{{selectedwrr.recyds}}</td>
+<td>{{selectedwrr.retd}}</td>
+<td>{{selectedwrr.re2pt}}</td>
+<td>{{selectedwrr.reyds}}</td>
+<td>{{selectedwrr.td}}</td>
+<td>{{selectedwrr.yr}}</td>
+<td>{{selectedwrr.pos}}</td>
+
+
+</tr>
+         <tr>
+<th>TE <select ng-model="selectedte" ng-options="nut as nut.player for nut in te" ng-change=update()></select></th>
+
+    </tr>
+    <tr>
+<td>{{selectedTE.player}}</td>
+<td>{{selectedTE.bye}}</td>
+<td>{{selectedTE.pts}}</td>
+<td>{{selectedTE.patt}}</td>
+<td>{{selectedTE.pcmp}}</td>
+<td>{{selectedTE.pyds}}</td>
+<td>{{selectedTE.ptd}}</td>
+<td>{{selectedTE.interception}}</td>
+<td>{{selectedTE.p2pt}}</td>
+<td>{{selectedTE.ryds}}</td>
+<td>{{selectedTE.rtd}}</td>
+<td>{{selectedTE.r2pt}}</td>
+<td>{{selectedTE.rec}}</td>
+<td>{{selectedTE.recyds}}</td>
+<td>{{selectedTE.retd}}</td>
+<td>{{selectedTE.re2pt}}</td>
+<td>{{selectedTE.reyds}}</td>
+<td>{{selectedTE.td}}</td>
+<td>{{selectedTE.yr}}</td>
+<td>{{selectedTE.pos}}</td>
+    </tr>
+             <tr>
+<th>FLX <select ng-model="selectedflx" ng-options="nut as nut.player for nut in flx" ng-change=update()></select></th>
+
+    </tr>
+    <tr>
+<td>{{selectedflx.player}}</td>
+<td>{{selectedflx.bye}}</td>
+<td>{{selectedflx.pts}}</td>
+<td>{{selectedflx.patt}}</td>
+<td>{{selectedflx.pcmp}}</td>
+<td>{{selectedflx.pyds}}</td>
+<td>{{selectedflx.ptd}}</td>
+<td>{{selectedflx.interception}}</td>
+<td>{{selectedflx.p2pt}}</td>
+<td>{{selectedflx.ryds}}</td>
+<td>{{selectedflx.rtd}}</td>
+<td>{{selectedflx.r2pt}}</td>
+<td>{{selectedflx.rec}}</td>
+<td>{{selectedflx.recyds}}</td>
+<td>{{selectedflx.retd}}</td>
+<td>{{selectedflx.re2pt}}</td>
+<td>{{selectedflx.reyds}}</td>
+<td>{{selectedflx.td}}</td>
+<td>{{selectedflx.yr}}</td>
+<td>{{selectedflx.pos}}</td>
+    </tr>
+                 <tr>
+<th>D/ST <select ng-model="selectedd" ng-options="nut as nut.team for nut in tm" ng-change=putdata(selectedd.id)></select></th>
+<td>BYE</td>
+<td>Pts</td>
+<td>Sacks</td>
+<td>Interceptions</td>
+<td>Safety</td>
+<td>FR</td>   
+<td>Blocks</td>
+<td>Touchdowns</td>
+<td>PA</td>                    
+<td>GPassYds</td>
+<td>GRushYDS</td>
+<td>Gtotyds</td>
+<td>YEAR</td>
+<td>Position</td>                     
+
+    </tr>
+    <tr>
+<td>{{selectedd.team}}</td>
+<td>{{stat[3].bye}}</td>
+<td>{{stat[3].pts}}</td>       
+<td>{{stat[3].sack}}</td>
+<td>{{stat[3].interception}}</td>
+<td>{{stat[3].saf}}</td>
+<td>{{stat[3].fr}}</td>
+<td>{{stat[3].blk}}</td>
+<td>{{stat[3].td}}</td>
+<td>{{stat[3].pa}}</td>
+<td>{{stat[3].gpassyds}}</td>
+<td>{{stat[3].grushyds}}</td>
+<td>{{stat[3].gtotyds}}</td>
+<td>{{stat[3].yr}}</td>
+<td>{{stat[3].pos}}</td>
+
+    </tr>
+    <tr>
+<th> KICKER <select ng-model="selecteditemk" ng-options="nut as nut.player for nut in k" ng-change=update()></select></th>
+<td>Bye week</td>
+<td>Fantasy Points</td>
+<td>XPA</td>
+<td>XPM</td>
+<td>FGA</td>   
+<td>FGM</td>
+<td>FiftyPlus</td>
+<td>Position</td>
+<td>Year</td>
+
+
+
+</tr>
+<tr>
+<td>{{selecteditemk.player}}</td>
+<td>{{selecteditemk.bye}}</td>
+<td>{{selecteditemk.pts}}</td>
+<td>{{selecteditemk.xpa}}</td>
+<td>{{selecteditemk.xpm}}</td>
+<td>{{selecteditemk.fga}}</td>
+<td>{{selecteditemk.fgm}}</td>
+<td>{{selecteditemk.fiftyplus}}</td>
+<td>{{selecteditemk.pos}}</td>
+<td>{{selecteditemk.yr}}</td>
+</tr>
+    
+    
+</tbody>
+</table>
+</form>
+    
+    <pre>{{selecteditem.qb | json}}
+    </pre>
+        </div>
+    <script>
+        var app = angular.module('myplayers', []);
+        app.controller('allflexcontroller', function($scope, $http) {
+            $http.get("http://localhost:8080/flex/pos/qb")
+                .then(function(response) {
+                    console.log(response);
+                    $scope.nuts = response.data;
+                });
+              $http.get("http://localhost:8080/flex/pos/rb")
+                .then(function(response) {
+                    console.log(response);
+                    $scope.rb = response.data;
+                });
+            $http.get("http://localhost:8080/flex/pos/wr")
+                .then(function(response) {
+                    console.log(response);
+                    $scope.wr = response.data;
+                });
+            $http.get("http://localhost:8080/flex/pos/te")
+                .then(function(response) {
+                    console.log(response);
+                    $scope.te = response.data;
+                });
+            $http.get("http://localhost:8080/flex/mult/te")
+                .then(function(response) {
+                    console.log(response);
+                    $scope.flx = response.data;
+                });
+                       $http.get("http://localhost:8080/team/findteam/")
+                .then(function(response) {
+                    console.log(response.data);
+                    $scope.tm = response.data;
+                });
+    $scope.choice=null;
+     $scope.putdata=function(choice){
+       var url='http://localhost:8080/def/stats/'+choice
+       var data={
+         choice: choice
+       };
+       console.log(url);
+       
+       $http.get(url).then(function(response){
+         $scope.stat=response.data;
+           console.log(response.data);
+       })
+     };
+            $http.get("http://localhost:8080/allkicker")
+                .then(function(response) {
+                    console.log(response);
+                    $scope.k = response.data;
+                });
+            
+            
+            
+            
+       });
+    </script>
+
+        </body>
+        
+    </section>
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2"> </h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block"></a></li>
+                <li><a href="#" class="py-2 d-block"></a></li>
+                <li><a href="#" class="py-2 d-block"></a></li>
+                <li><a href="#" class="py-2 d-block"></a></li>
+                <li><a href="#" class="py-2 d-block"></a></li>
+                <li><a href="#" class="py-2 d-block"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2"></h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block"></a></li>
+                <li><a href="#" class="py-2 d-block"></a></li>
+                <li><a href="#" class="py-2 d-block"></a></li>
+                <li><a href="#" class="py-2 d-block"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2"></h2>
+              <p></p>
+              <form action="#" class="subscribe-form">
+                <div class="form-group">
+                  <span class="icon icon-paper-plane"></span>
+                  <input type="text" class="form-control" placeholder="Subscribe">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="js/google-map.js"></script>
+  <script src="js/main.js"></script>
+    
+  </body>
+</html>
