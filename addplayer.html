@@ -1,0 +1,111 @@
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"> </script>
+    
+    </head>
+
+<body>
+     <div ng-app="postapp" ng-controller="postctrl">
+         <form>
+
+<label for="name">player</label><br /> 
+<input name="name" ng-model="player" type="text" value="" /> <br />
+<label for="name">bye</label><br /> 
+<input ng-model="bye" type="text" value="" /> <br />
+<label for="name">pts</label><br /> 
+<input ng-model="pts" type="text" value="" /> <br />
+<label for="name">patt</label><br /> 
+<input ng-model="patt" type="text" value="" /> <br />
+<label for="name">pcmp</label><br /> 
+<input ng-model="pcmp" type="text" value="" /> <br />
+<label for="name">pyds</label><br /> 
+<input ng-model="pyds" type="text" value="" /> <br />
+<label for="name">ptd</label><br /> 
+<input ng-model="ptd" type="text" value="" /> <br />
+<label for="name">interception</label><br /> 
+<input ng-model="interception" type="text" value="" /> <br />
+<label for="name">p2pt</label><br /> 
+<input ng-model="p2pt" type="text" value="" /> <br />
+<label for="name">ratt</label><br /> 
+<input ng-model="ratt" type="text" value="" /> <br />
+<label for="name">ryds</label><br /> 
+<input ng-model="ryds" type="text" value="" /> <br />
+<label for="name">rtd</label><br /> 
+<input ng-model="rtd" type="text" value="" /> <br />
+<label for="name">r2pt</label><br /> 
+<input ng-model="r2pt" type="text" value="" /> <br />
+<label for="name">rec</label><br /> 
+<input ng-model="rec" type="text" value="" /> <br />
+<label for="name">recyds</label><br /> 
+<input ng-model="recyds" type="text" value="" /> <br />
+<label for="name">retd</label><br /> 
+<input ng-model="retd" type="text" value="" /> <br />
+<label for="name">re2pt</label><br /> 
+<input ng-model="re2pt" type="text" value="" /> <br />
+<label for="name">reyds</label><br /> 
+<input ng-model="reyds" type="text" value="" /> <br />
+<label for="name">td</label><br /> 
+<input ng-model="td" type="text" value="" /> <br />
+<label for="name">yr</label><br /> 
+<input ng-model="yr" type="text" value="" /> <br />
+<label for="name">pos</label><br /> 
+<input ng-model="pos" type="text" value="" /> <br />
+
+     <button type="button" value="Submit"  ng-click="makeURL(player,bye,pts,patt,pcmp,pyds,ptd,interception,p2pt,ratt,ryds,rtd,r2pt,rec,recyds,retd,re2pt,reyds,td,yr,pos)">CREATE</button>
+      {{msg}}
+         
+         </form>
+         
+    </div>
+    
+    <script>
+
+var app = angular.module('postapp',[]);
+app.controller('postctrl', function($scope,$http){
+$scope.player = null;
+$scope.bye = null;
+$scope.pts= null;
+$scope.patt= null;
+$scope.pcmp= null;
+$scope.pyds= null;
+$scope.ptd= null;
+$scope.interception = null;
+$scope.p2pt = null;
+$scope.ratt= null;
+$scope.ryds= null;
+$scope.rtd= null;
+$scope.r2pt= null;
+$scope.rec=null;
+$scope.recyds = null;
+$scope.retd = null;
+$scope.re2pt= null;
+$scope.reyds= null;
+$scope.td= null;
+$scope.yr= null;
+$scope.pos= null;
+    
+$scope.makeURL = function(player,bye,pts,patt,pcmp,pyds,ptd,interception,p2pt,ratt,ryds,rtd,r2pt,rec,recyds,retd,re2pt,reyds,td,yr,pos){
+var url = 'http://localhost:8080/CheckOn/flex?'+player+'&'+bye+''+pts+'&'+patt+'&'+pcmp+'&'+pyds+'&'+ptd+'&'+interception+'&'+p2pt+'&'+ratt+'&'+ryds+'&'+rtd+'&'+r2pt+'&'+rec+'&'+recyds+'&'+retd+'&'+re2pt+'&'+reyds+'&'+td+'&'+yr+'&'+pos
+
+    
+console.log(url);
+
+//Call the services
+$http.post(url).then(function (response) {
+if (response.data)
+$scope.output = response.data;
+$scope.msg = "Put Data Method Executed Successfully!";
+}, function (response) {
+$scope.msg = "Service not Exists";
+$scope.statusval = response.status;
+$scope.statustext = response.statusText;
+$scope.headers = response.headers();
+});
+};
+});
+
+
+
+</script>
+</body>
+</html> 
